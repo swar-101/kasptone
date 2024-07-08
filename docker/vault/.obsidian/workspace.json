@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "0c278dc25dca2d07",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe9a0e4e8f242aae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f2bdc4e5ee6930b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "369f631f7da4e635",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4182c0f03ef05ff6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Install Kong with DB.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "dab481f4a527d0b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Untitled.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "299b6997355287d4",
+    "type": "split",
+    "children": [
+      {
+        "id": "729c0093a9308e7e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e5dfa59c785c236f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "996232d433bb9465",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cbe079510153bbf9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0456c6bb36c88d53",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3f77fd72209cedc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2b922062f95cbcd7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Untitled.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4d5ab67543d48133",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Untitled.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0727734e8da6df36",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "320da9dd3f6df907",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Untitled.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2f2bdc4e5ee6930b",
+  "lastOpenFiles": [
+    "Installing Docker of WSL2.md",
+    "Untitled.md",
+    "Install Kong with DB.md",
+    "Pasted image 20240701210340.png",
+    "Pasted image 20240701205746.png"
+  ]
+}
