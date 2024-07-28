@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Product extends BaseModel {
-    private Long id;
     private String name;
     private String description;
     private String imageUrl;

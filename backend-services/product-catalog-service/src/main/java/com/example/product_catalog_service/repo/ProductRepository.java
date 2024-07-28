@@ -18,6 +18,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>, PagingA
     @Query("SELECT p FROM Product p WHERE p.name= :name")
     List<Product> findByName(@Param("name") String name);
 
-    
-    List<Product> findAllByIsPrime(Boolean isPrime);
+//    List<Product> findAllByIsPrime(Boolean isPrime);
 }

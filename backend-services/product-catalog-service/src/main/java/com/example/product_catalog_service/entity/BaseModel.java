@@ -1,9 +1,10 @@
 package com.example.product_catalog_service.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Date;
 
 @Getter
 @Setter
@@ -11,5 +12,15 @@ import lombok.Setter;
 public class BaseModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
+    private Date createdAt;
+
+    @Column(nullable = false)
+    private Date lastUpdatedAt;
+
+    @Column(nullable = false)
+    private State state;
 }
