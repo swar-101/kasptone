@@ -1,4 +1,4 @@
-package org.swar.jwt4nxt;
+package org.swar.jwt;
 
 public interface JwtGenerator {
 

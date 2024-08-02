@@ -1,4 +1,4 @@
-package org.swar.jwt;
+package org.swar.jwt4nxt;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

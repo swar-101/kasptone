@@ -1,9 +1,10 @@
-package org.swar.jwt4nxt;
+package org.swar.jwt.jwt4nxt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.log4j.Log4j2;
+import org.swar.jwt.JwtGenerator;
 
 import java.security.Key;
 import java.util.Date;
