@@ -2,6 +2,7 @@ package com.example.email_service.client;
 
 import com.example.email_service.dto.MessageDTO;
 import com.example.email_service.exception.EmailDeliveryException;
+import com.example.email_service.service.EmailService;
 import com.example.email_service.util.EmailSessionUtil;
 import com.example.email_service.util.EmailUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,10 +22,12 @@ import static com.example.email_service.util.Constants.SIGNUP;
 public class EmailConsumer {
 
     private final ObjectMapper objectMapper;
+    private final EmailService emailService;
 
     @Autowired
-    public EmailConsumer(ObjectMapper objectMapper) {
+    public EmailConsumer(ObjectMapper objectMapper, EmailService emailService) {
         this.objectMapper = objectMapper;
+        this.emailService = emailService;
     }
 
     /**
@@ -38,7 +41,7 @@ public class EmailConsumer {
         try {
             messageDTO = objectMapper.readValue(message, MessageDTO.class);
         } catch (JsonProcessingException e) {
-            log.error("[EmailConsumer][sendEmail] Failed to convert message", e);
+            log.error("[EmailConsumer][sendEmail] Failed to process message: {}", message, e);
         }
 
         if (null == messageDTO) {
@@ -46,16 +49,12 @@ public class EmailConsumer {
             throw new EmailDeliveryException("MessageDTO is null after JSON conversion");
         }
 
-        Session session = EmailSessionUtil.createGmailSession(messageDTO.getFrom(), "dummy password");
-
         try {
-            EmailUtil.sendEmail(session, messageDTO.getTo(), messageDTO.getSubject(), messageDTO.getBody());
+            emailService.sendEmail(messageDTO);
             log.info("[EmailConsumer][sendEmail] Email sent successfully to {}", messageDTO.getTo());
         } catch (Exception e) {
             log.error("[EmailConsumer][sendEmail] Failed to send email to {}", messageDTO, e);
             throw new EmailDeliveryException("Failed to send to {} due to: ", e);
         }
     }
-
-
 }

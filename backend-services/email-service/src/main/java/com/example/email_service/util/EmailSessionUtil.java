@@ -13,7 +13,6 @@ import static com.example.email_service.util.Constants.SMTP_STARTTLS_ENABLE;
 @Component
 public class EmailSessionUtil {
 
-
     public static Session createGmailSession(String email, String password) {
         Properties props = new Properties();
         props.put(MAIL_SMTP_HOST, SMTP_HOST);
