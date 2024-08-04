@@ -6,7 +6,6 @@ import com.example.product_catalog_service.entity.Product;
 import com.example.product_catalog_service.entity.State;
 import com.example.product_catalog_service.mapper.ProductMapper;
 import com.example.product_catalog_service.repo.ProductRepository;
-import com.example.product_catalog_service.util.Constants;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

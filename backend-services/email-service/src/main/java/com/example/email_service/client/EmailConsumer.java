@@ -3,16 +3,12 @@ package com.example.email_service.client;
 import com.example.email_service.dto.MessageDTO;
 import com.example.email_service.exception.EmailDeliveryException;
 import com.example.email_service.service.EmailService;
-import com.example.email_service.util.EmailSessionUtil;
-import com.example.email_service.util.EmailUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-
-import javax.mail.Session;
 
 import static com.example.email_service.util.Constants.EMAIL_SERVICE;
 import static com.example.email_service.util.Constants.SIGNUP;
