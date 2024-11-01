@@ -1,0 +1,44 @@
+<!-- Root pom.xml -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Group ID and Version of the parent project -->
+    <groupId>com.example</groupId>
+    <artifactId>nxt</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <!-- Specify that this is a parent project -->
+    <modules>
+        <!-- Microservice -->
+        <module>email-service</module>
+        <module>product-catalog-service</module>
+        <module>service-discovery</module>
+		<module>user-auth-service</module>
+    </modules>
+
+    <!-- Common dependencies -->
+    <dependencyManagement>
+        <dependencies>
+			<!-- Spring Boot v-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Centralized plugins and build configuration -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <!-- Add plugins like maven-surefire-plugin for testing, etc. -->
+          
+
+		  </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

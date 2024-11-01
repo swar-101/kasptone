@@ -4,11 +4,14 @@ import com.example.email_service.dto.MessageDTO;
 import com.example.email_service.exception.EmailDeliveryException;
 import com.example.email_service.service.EmailService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
+
+import java.util.Optional;
 
 import static com.example.email_service.util.Constants.EMAIL_SERVICE;
 import static com.example.email_service.util.Constants.SIGNUP;
@@ -33,24 +36,34 @@ public class EmailConsumer {
      */
     @KafkaListener(topics = EMAIL_SERVICE, groupId = SIGNUP)
     public void sendEmail(String message) throws EmailDeliveryException {
-        MessageDTO messageDTO = null;
-        try {
-            messageDTO = objectMapper.readValue(message, MessageDTO.class);
-        } catch (JsonProcessingException e) {
-            log.error("[EmailConsumer][sendEmail] Failed to process message: {}", message, e);
-        }
+        MessageDTO messageDTO = deserialize(message);
+        sendEmailToRecipient(messageDTO);
+    }
 
-        if (null == messageDTO) {
-            log.error("[EmailConsumer][sendEmail] Message is null after JSON conversion");
-            throw new EmailDeliveryException("MessageDTO is null after JSON conversion");
+    private MessageDTO deserialize(String message) throws EmailDeliveryException {
+        try {
+            return objectMapper.readValue(message, MessageDTO.class);
+        } catch (JsonMappingException e) {
+            throw new RuntimeException(e);
+        } catch (JsonProcessingException e) {
+            log.error("[EmailConsumer][deserializeMessage] Failed to process the message: {}", message, e);
+            throw new EmailDeliveryException("MessageDTO is Null after JSON conversion");
         }
+    }
+
+    private void sendEmailToRecipient(MessageDTO messageDTO) throws EmailDeliveryException {
+        Optional.ofNullable(messageDTO)
+                .orElseThrow(() -> {
+                    log.error("MessageDTO is null");
+                    return new EmailDeliveryException("MessageDTO is null after JSON conversion");
+                });
 
         try {
             emailService.sendEmail(messageDTO);
-            log.info("[EmailConsumer][sendEmail] Email sent successfully to {}", messageDTO.getTo());
+            log.info("[EmailConsumer][] Email sent successfully to {}", messageDTO.getTo());
         } catch (Exception e) {
-            log.error("[EmailConsumer][sendEmail] Failed to send email to {}", messageDTO, e);
-            throw new EmailDeliveryException("Failed to send to {} due to: ", e);
+            log.error("Failed to send email to {}", messageDTO.getTo());
+            throw new EmailDeliveryException("Failed to send email due to ", e);
         }
     }
 }

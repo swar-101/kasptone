@@ -1,0 +1,15 @@
++------------+                                  +-------------------+                                  +--------------+
+|            |                                  |                   |                                  |              |
+|   Client   +----(1) Authorization Request---->| Authorization     |                                  |   Resource   |
+|            |                                  |     Server        |                                  |    Owner     |
+|            | <----(2) Access Token-----------+                    +-----(3) Authentication &         |              |
+|            |                                  |                   |       Authorization------------->|              |
+|            |                                  |                   |                                  |              |
+|            |                                  +-------------------+                                  +--------------+
+|            |
+|            |                                  +-------------------+
+|            |                                  |                   |
+|            +-----(4) Access Protected-------->|  Resource Server  |
+|            |        Resource                  |                   |
+|            |                                  |                   |
++------------+                                  +-------------------+
