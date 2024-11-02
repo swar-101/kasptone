@@ -1,4 +1,4 @@
-package com.example.email_service.client;
+package com.example.nxt.email_service.client;
 
 import org.junit.jupiter.api.Test;
 

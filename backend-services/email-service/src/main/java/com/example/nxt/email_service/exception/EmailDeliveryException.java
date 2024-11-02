@@ -1,4 +1,4 @@
-package com.example.email_service.exception;
+package com.example.nxt.email_service.exception;
 
 public class EmailDeliveryException extends Exception {
 

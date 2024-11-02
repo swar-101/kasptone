@@ -1,4 +1,4 @@
-package com.example.email_service.util;
+package com.example.nxt.email_service.util;
 
 
 public class Constants {

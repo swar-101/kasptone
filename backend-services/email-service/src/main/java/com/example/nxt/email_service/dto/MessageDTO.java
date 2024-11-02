@@ -1,4 +1,4 @@
-package com.example.email_service.dto;
+package com.example.nxt.email_service.dto;
 
 import lombok.Getter;
 import lombok.Setter;

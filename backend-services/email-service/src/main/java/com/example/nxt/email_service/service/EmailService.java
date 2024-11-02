@@ -1,9 +1,9 @@
-package com.example.email_service.service;
+package com.example.nxt.email_service.service;
 
-import com.example.email_service.dto.MessageDTO;
-import com.example.email_service.exception.EmailDeliveryException;
-import com.example.email_service.util.EmailSessionUtil;
-import com.example.email_service.util.EmailUtil;
+import com.example.nxt.email_service.dto.MessageDTO;
+import com.example.nxt.email_service.exception.EmailDeliveryException;
+import com.example.nxt.email_service.util.EmailSessionUtil;
+import com.example.nxt.email_service.util.EmailUtil;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Session;

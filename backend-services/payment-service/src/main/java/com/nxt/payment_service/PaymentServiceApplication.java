@@ -1,13 +1,13 @@
-package com.example.email_service;
+package com.nxt.payment_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EmailServiceApplication {
+public class PaymentServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmailServiceApplication.class, args);
+		SpringApplication.run(PaymentServiceApplication.class, args);
 	}
 
 }

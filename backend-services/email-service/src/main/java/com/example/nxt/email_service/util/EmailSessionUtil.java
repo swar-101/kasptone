@@ -1,4 +1,4 @@
-package com.example.email_service.util;
+package com.example.nxt.email_service.util;
 
 import org.springframework.stereotype.Component;
 
@@ -7,8 +7,8 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import java.util.Properties;
 
-import static com.example.email_service.util.Constants.*;
-import static com.example.email_service.util.Constants.SMTP_STARTTLS_ENABLE;
+import static com.example.nxt.email_service.util.Constants.*;
+import static com.example.nxt.email_service.util.Constants.SMTP_STARTTLS_ENABLE;
 
 @Component
 public class EmailSessionUtil {

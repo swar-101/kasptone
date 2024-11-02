@@ -1,8 +1,9 @@
-package com.example.email_service.client;
+package com.example.nxt.email_service.client;
 
-import com.example.email_service.dto.MessageDTO;
-import com.example.email_service.exception.EmailDeliveryException;
-import com.example.email_service.service.EmailService;
+import com.example.nxt.email_service.dto.MessageDTO;
+import com.example.nxt.email_service.exception.EmailDeliveryException;
+import com.example.nxt.email_service.service.EmailService;
+import com.example.nxt.email_service.util.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,9 +13,6 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
-
-import static com.example.email_service.util.Constants.EMAIL_SERVICE;
-import static com.example.email_service.util.Constants.SIGNUP;
 
 @Log4j2
 @Component
@@ -34,7 +32,7 @@ public class EmailConsumer {
      *
      * @param message Message received from the Kafka Topic
      */
-    @KafkaListener(topics = EMAIL_SERVICE, groupId = SIGNUP)
+    @KafkaListener(topics = Constants.EMAIL_SERVICE, groupId = Constants.SIGNUP)
     public void sendEmail(String message) throws EmailDeliveryException {
         MessageDTO messageDTO = deserialize(message);
         sendEmailToRecipient(messageDTO);

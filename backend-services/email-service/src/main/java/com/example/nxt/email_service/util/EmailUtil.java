@@ -1,6 +1,6 @@
-package com.example.email_service.util;
+package com.example.nxt.email_service.util;
 
-import com.example.email_service.exception.EmailDeliveryException;
+import com.example.nxt.email_service.exception.EmailDeliveryException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpHeaders;
 
