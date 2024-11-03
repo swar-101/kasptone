@@ -1,7 +1,6 @@
 package com.nxt.payment_service.payment.razorpay;
 
-import com.nxt.payment_service.dto.PaymentLinkRequestBuilder;
-import com.nxt.payment_service.exception.PaymentProcessingException;
+import com.nxt.payment_service.exception.RazorpayPaymentCreationException;
 import com.nxt.payment_service.payment.PaymentGateway;
 import com.razorpay.PaymentLink;
 import com.razorpay.RazorpayClient;
@@ -14,25 +13,24 @@ import org.springframework.stereotype.Component;
 public class RazorpayPaymentGateway implements PaymentGateway {
 
     private final RazorpayClient razorpayClient;
-    private final PaymentLinkRequestBuilder paymentLinkRequestBuilder;
+    private final RazorpayPaymentLinkRequestBuilder razorpayPaymentLinkRequestBuilder;
 
     @Autowired
-    public RazorpayPaymentGateway(RazorpayClient razorpayClient, PaymentLinkRequestBuilder paymentLinkRequestBuilder) {
+    public RazorpayPaymentGateway(RazorpayClient razorpayClient, RazorpayPaymentLinkRequestBuilder razorpayPaymentLinkRequestBuilder) {
         this.razorpayClient = razorpayClient;
-        this.paymentLinkRequestBuilder = paymentLinkRequestBuilder;
+        this.razorpayPaymentLinkRequestBuilder = razorpayPaymentLinkRequestBuilder;
     }
 
     @Override
     public String getPaymentLink(Long amount, String orderId, String phoneNumber, String name) {
+        JSONObject paymentLinkRequest = razorpayPaymentLinkRequestBuilder
+                .buildPaymentLinkRequest(amount, orderId, phoneNumber, name);
+
         try {
-            JSONObject paymentLinkRequest = paymentLinkRequestBuilder
-                    .setAmount(amount)
-                    .setCustomerDetails(phoneNumber, name)
-                    .setReferenceId(orderId).build();
             PaymentLink paymentLink = razorpayClient.paymentLink.create(paymentLinkRequest);
             return paymentLink.get("short_url").toString();
         } catch (RazorpayException e) {
-            throw new PaymentProcessingException("Unable to create payment link due to ", e);
+            throw new RazorpayPaymentCreationException("Unable to create payment link due to ", e);
         }
     }
 }
