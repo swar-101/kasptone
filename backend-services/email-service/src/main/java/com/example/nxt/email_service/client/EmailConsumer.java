@@ -51,10 +51,7 @@ public class EmailConsumer {
 
     private void sendEmailToRecipient(MessageDTO messageDTO) throws EmailDeliveryException {
         Optional.ofNullable(messageDTO)
-                .orElseThrow(() -> {
-                    log.error("MessageDTO is null");
-                    return new EmailDeliveryException("MessageDTO is null after JSON conversion");
-                });
+                .orElseThrow(()-> new EmailDeliveryException("MessageDTO is null after JSON conversion"));
 
         try {
             emailService.sendEmail(messageDTO);

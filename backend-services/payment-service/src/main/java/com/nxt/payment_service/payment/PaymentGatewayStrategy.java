@@ -54,11 +54,14 @@ public class PaymentGatewayStrategy {
      * @return the selected {@link PaymentGateway} instance, either Razorpay or Stripe
      */
     public PaymentGateway getOptimalPaymentGateway() {
-        int gatewayDecisionFactor = ThreadLocalRandom.current().nextInt(0, 10);
-        if (gatewayDecisionFactor > 4) {
+        if (getGatewayDecisionFactor() > 4) {
             return razorpayPaymentGateway;
         } else {
             return stripePaymentGateway;
         }
+    }
+
+    private int getGatewayDecisionFactor() {
+        return ThreadLocalRandom.current().nextInt(0, 10);
     }
 }

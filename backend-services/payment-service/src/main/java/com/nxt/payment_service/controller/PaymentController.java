@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/v1/payment")
 public class PaymentController {
+
+    private final PaymentService paymentService;
+
     @Autowired
-    private PaymentService paymentService;
+    public PaymentController(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
 
     @PostMapping
-    public String initializePayment(@RequestBody PaymentDTO paymentDTO      ){
+    public String initializePayment(@RequestBody PaymentDTO paymentDTO){
         return paymentService.getPaymentLink(paymentDTO);
     }
 }
